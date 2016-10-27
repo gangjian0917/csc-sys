@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: pybbs
+Implementation-Version: 2.4
+Built-By: jamesd
+Implementation-Vendor-Id: cn.tomoya
+Build-Jdk: 1.8.0_91
+Implementation-URL: http://projects.spring.io/spring-boot/pybbs/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

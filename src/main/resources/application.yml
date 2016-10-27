@@ -1,0 +1,24 @@
+spring:
+  freemarker:
+    cache: false
+  datasource:
+    url: jdbc:mysql://192.168.31.128/pybbs-springboot?useSSL=false
+    username: root
+    password: root
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  mvc:
+    static-path-pattern: /static/**
+  data:
+    elasticsearch:
+      properties:
+        path:
+          name: target/elastic
+        transport:
+          tcp:
+            connect_timeout: 120s
+banner:
+  location: banner.txt
