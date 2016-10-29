@@ -1,5 +1,5 @@
 
-INSERT INTO `pybbs_permission` (`id`, `description`, `name`, `pid`, `url`)
+INSERT INTO `cs_permission` (`id`, `description`, `name`, `pid`, `url`)
 VALUES
 	(1,'仪表盘','index',0,NULL),
 	(2,'话题','topic',0,NULL),
@@ -25,13 +25,13 @@ VALUES
 	(22,'角色编辑','role:edit',6,'/admin/role/*/edit'),
 	(23,'角色删除','role:delete',6,'/admin/role/*/delete');
 
-INSERT INTO `pybbs_role` (`id`, `description`, `name`)
+INSERT INTO `cs_role` (`id`, `description`, `name`)
 VALUES
 	(1,'超级管理员','admin'),
 	(2,'版主','banzhu'),
 	(3,'会员','user');
 
-INSERT INTO `pybbs_role_permission` (`role_id`, `permission_id`)
+INSERT INTO `cs_role_permission` (`role_id`, `permission_id`)
 VALUES
 	(1,7),
 	(2,7),
@@ -57,10 +57,10 @@ VALUES
 	(1,22),
 	(1,23);
 
-INSERT INTO `pybbs_user` (`id`, `email`, `in_time`, `password`, `signature`, `url`, `username`, `avatar`)
+INSERT INTO `cs_user` (`id`, `email`, `in_time`, `password`, `signature`, `url`, `username`, `avatar`)
 VALUES
-	(1,'jamesd@aliyun.com','2016-09-09 09:50:14','$2a$10$KkUG107R3ASTHfAHei.bweXWXgCa4cE1KhK.F0odzfE0r97aeeTXC','这家伙很懒，什么都没留下','http://jamesd.cn','jamesd','http://localhost:8080/static/images/avatar/default.png');
+	(1,'jamesd@aliyun.com','2016-09-09 09:50:14','$2a$10$KkUG107R3ASTHfAHei.bweXWXgCa4cE1KhK.F0odzfE0r97aeeTXC','这家伙很懒，什么都没留下','http://jamesd.cn','jamesd','http://localhost/static/images/avatar/default.png');
 
-INSERT INTO `pybbs_user_role` (`user_id`, `role_id`)
+INSERT INTO `cs_user_role` (`user_id`, `role_id`)
 VALUES
 	(1,1);
