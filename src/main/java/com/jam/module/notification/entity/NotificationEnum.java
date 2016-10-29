@@ -1,9 +1,8 @@
 package com.jam.module.notification.entity;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 public enum NotificationEnum {
     REPLY,

@@ -21,9 +21,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Controller
 @RequestMapping("/topic")

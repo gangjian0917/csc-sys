@@ -17,9 +17,8 @@ import com.jam.util.Constants;
 import java.util.List;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Service
 @Transactional

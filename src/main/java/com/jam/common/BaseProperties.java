@@ -3,24 +3,23 @@ package com.jam.common;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 //@Component
 //@Setter @Getter
 public class BaseProperties {
 
-    @Value("${cn.tomoya.bbs.siteName}")
+    @Value("${com.jam.bbs.siteName}")
     private String siteName;
 
-    @Value("${cn.tomoya.bbs.cookie.name}")
+    @Value("${com.jam.bbs.cookie.name}")
     private String cookieName;
 
-    @Value("${cn.tomoya.bbs.cookie.domain}")
+    @Value("${com.jam.bbs.cookie.domain}")
     private String cookieDomain;
 
-    @Value("${cn.tomoya.bbs.session.name}")
+    @Value("${com.jam.bbs.session.name}")
     private String sessionName;
 
 }

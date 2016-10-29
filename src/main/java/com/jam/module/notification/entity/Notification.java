@@ -12,12 +12,11 @@ import com.jam.module.user.entity.User;
 import java.util.Date;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Entity
-@Table(name = "pybbs_notification")
+@Table(name = "cs_notification")
 @Getter
 @Setter
 public class Notification extends BaseEntity {

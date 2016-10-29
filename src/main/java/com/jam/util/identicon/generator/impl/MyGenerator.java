@@ -6,9 +6,8 @@ import java.util.Random;
 import com.jam.util.identicon.generator.IBaseGenartor;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 public class MyGenerator implements IBaseGenartor {
 

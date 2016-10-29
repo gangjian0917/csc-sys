@@ -13,12 +13,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Entity
-@Table(name = "pybbs_user")
+@Table(name = "cs_user")
 @Getter
 @Setter
 public class User extends BaseEntity {
@@ -55,7 +54,7 @@ public class User extends BaseEntity {
     //用户与角色的关联关系
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name="pybbs_user_role",
+            name="cs_user_role",
             joinColumns={@JoinColumn(name="user_id")},
             inverseJoinColumns={@JoinColumn(name="role_id")}
     )

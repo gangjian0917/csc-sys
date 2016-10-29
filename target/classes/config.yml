@@ -1,5 +1,5 @@
 site:
-  name: 朋也社区
+  name: 核心系统社区
   baseUrl: http://localhost:8080/
   sessionName: _user
   adminSessionName: _admin_user
@@ -8,8 +8,8 @@ site:
   cookieDomain: localhost
   cookieExpireTime: 30 # 单位天
   pageSize: 20
-  avatarPath: /Users/tomoya/git/coding/pybbs-springboot/src/main/resources/static/images/avatar/
-  uploadPath: /Users/tomoya/git/coding/pybbs-springboot/src/main/resources/static/images/upload/
+  avatarPath: /Users/tomoya/git/coding/cs-springboot/src/main/resources/static/images/avatar/
+  uploadPath: /Users/tomoya/git/coding/cs-springboot/src/main/resources/static/images/upload/
   sections:
     - 分享
     - 问答

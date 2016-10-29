@@ -19,9 +19,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Component
 @Log4j

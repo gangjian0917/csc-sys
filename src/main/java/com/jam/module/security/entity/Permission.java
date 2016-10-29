@@ -11,12 +11,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Entity
-@Table(name="pybbs_permission")
+@Table(name="cs_permission")
 @Getter
 @Setter
 public class Permission extends BaseEntity {

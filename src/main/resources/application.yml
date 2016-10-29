@@ -2,7 +2,7 @@ spring:
   freemarker:
     cache: false
   datasource:
-    url: jdbc:mysql://192.168.31.128/pybbs-springboot?useSSL=false
+    url: jdbc:mysql://192.168.31.128/cs-springboot?useSSL=false
     username: root
     password: root
   jpa:

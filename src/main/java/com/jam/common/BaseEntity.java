@@ -15,9 +15,8 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Log4j
 public class BaseEntity {

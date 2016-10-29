@@ -12,9 +12,8 @@ import com.jam.module.reply.entity.Reply;
 import com.jam.module.reply.service.ReplyService;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Controller
 @RequestMapping("/admin/reply")

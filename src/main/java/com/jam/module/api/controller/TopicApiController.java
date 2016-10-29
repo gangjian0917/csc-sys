@@ -12,9 +12,8 @@ import com.jam.module.user.entity.User;
 import com.jam.util.JsonUtil;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Controller
 @RequestMapping("/api/topic")

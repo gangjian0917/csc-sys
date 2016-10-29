@@ -12,11 +12,10 @@ import com.jam.module.user.entity.User;
 import java.util.Date;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
-@Table(name = "pybbs_collect")
+@Table(name = "cs_collect")
 @Entity
 @Getter
 @Setter

@@ -14,9 +14,8 @@ import com.jam.module.topic.entity.Topic;
 import com.jam.module.user.entity.User;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Service
 @Transactional

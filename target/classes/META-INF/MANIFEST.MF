@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Implementation-Title: pybbs
+Implementation-Title: csportal
 Implementation-Version: 2.4
 Built-By: jamesd
-Implementation-Vendor-Id: cn.tomoya
+Implementation-Vendor-Id: com.jam
 Build-Jdk: 1.8.0_91
-Implementation-URL: http://projects.spring.io/spring-boot/pybbs/
+Implementation-URL: http://projects.spring.io/spring-boot/csportal/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
 

@@ -9,9 +9,8 @@ import com.jam.common.BaseController;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Controller
 @RequestMapping("/admin")

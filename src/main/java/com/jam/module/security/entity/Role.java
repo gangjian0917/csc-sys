@@ -12,12 +12,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Entity
-@Table(name = "pybbs_role")
+@Table(name = "cs_role")
 @Getter
 @Setter
 public class Role extends BaseEntity {
@@ -38,7 +37,7 @@ public class Role extends BaseEntity {
     //角色与权限的关联关系
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
-            name="pybbs_role_permission",
+            name="cs_role_permission",
             joinColumns={@JoinColumn(name="role_id")},
             inverseJoinColumns={@JoinColumn(name="permission_id")}
     )

@@ -6,9 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.jam.module.security.entity.Role;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Repository
 public interface RoleDao extends JpaRepository<Role, Integer> {

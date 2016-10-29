@@ -23,9 +23,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Controller
 @RequestMapping("/admin/user")

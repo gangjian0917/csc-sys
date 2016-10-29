@@ -3,9 +3,8 @@ package com.jam.util;
 import com.alibaba.fastjson.JSON;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 public class JsonUtil {
 

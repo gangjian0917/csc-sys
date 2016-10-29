@@ -5,24 +5,24 @@
     <div class="panel panel-default">
       <div class="panel-heading"><a href="/">主页</a> / 关于</div>
       <div class="panel-body topic-detail-content">
-        <p>朋也社区是用Java语言编写的社区（论坛）系统.</p>
+        <p>社区（论坛）系统.</p>
         <p>感谢 <a href="http://jfinal.com" target="_blank">JFinal</a> - Java极速开发框架</p>
         <p>界面布局参照
           <a href="https://cnodejs.org" target="_blank">cnodejs</a>,
           <a href="https://v2ex.com" target="_blank">v2ex</a>
         </p>
         <p>
-          欢迎提 <a href="https://github.com/tomoya92/pybbs/issues" target="_blank">issues</a>
+          欢迎提 <a href="https://github.com/tomoya92/cs/issues" target="_blank">issues</a>
         </p>
         <p>开源地址:
         <ul>
           <li>
-            Github: <a href="http://github.com/liygheart/pybbs"
-                       target="_blank">http://github.com/tomoya92/pybbs</a>
+            Github: <a href="http://github.com/liygheart/cs"
+                       target="_blank">http://github.com/tomoya92/cs</a>
           </li>
           <li>
-            Gitosc: <a href="http://git.oschina.net/20110516/pybbs"
-                       target="_blank">http://git.oschina.net/20110516/pybbs</a>
+            Gitosc: <a href="http://git.oschina.net/20110516/cs"
+                       target="_blank">http://git.oschina.net/20110516/cs</a>
           </li>
         </ul>
         <p>使用到的技术:

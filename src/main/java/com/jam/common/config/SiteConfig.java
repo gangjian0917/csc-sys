@@ -7,9 +7,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @ConfigurationProperties(locations = "classpath:config.yml", prefix = "site")
 @Setter

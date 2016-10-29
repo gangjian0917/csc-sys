@@ -6,9 +6,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Document(indexName = "topic", type = "topic", shards = 1, replicas = 0, refreshInterval = "-1")
 @Getter

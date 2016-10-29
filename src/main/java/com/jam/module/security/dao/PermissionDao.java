@@ -8,9 +8,8 @@ import com.jam.module.security.entity.Permission;
 import java.util.List;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Repository
 public interface PermissionDao extends JpaRepository<Permission, Integer> {

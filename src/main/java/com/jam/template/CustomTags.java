@@ -6,9 +6,8 @@ import freemarker.template.SimpleHash;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Component
 public class CustomTags extends SimpleHash {

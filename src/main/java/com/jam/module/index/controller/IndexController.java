@@ -38,9 +38,8 @@ import java.util.Date;
 import java.util.Optional;
 
 /**
- * Created by tomoya.
+ * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
- * http://tomoya.cn
  */
 @Controller
 @Log4j

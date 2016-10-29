@@ -1,4 +1,4 @@
-> 使用说明：请保留页面底部的 powered by 朋也社区
+> 使用说明：请保留页面底部的 powered by github
 
 ## 技术栈
 
@@ -26,24 +26,24 @@
 
 ## 如何开始
 
-- `git clone https://github.com/tomoya92/pybbs.git`
+- `git clone https://github.com/tomoya92/cs.git`
 - `git clone https://github.com/tomoya92/java-utils.git` 并按照readme的说明安装到本地 
 - 修改配置文件 `src/main/resources/application.yml` `src/main/resources/config.yml` 里的配置项
-- 创建数据库 `pybbs-springboot`
-- 运行`PybbsApplication.java`里的`main`方法
-- 启动项目后表是自动创建的，然后将 `pybbs-springboot.sql` 导入数据库
+- 创建数据库 `cs-springboot`
+- 运行`csApplication.java`里的`main`方法
+- 启动项目后表是自动创建的，然后将 `cs-springboot.sql` 导入数据库
 - 浏览器 `http://localhost:8080/`
 - 默认帐户 `tomoya` `123123`
 
 ## 打jar包运行
 
-- `git clone https://github.com/tomoya92/pybbs.git`
+- `git clone https://github.com/tomoya92/cs.git`
 - `git clone https://github.com/tomoya92/java-utils.git` 并按照readme的说明安装到本地 
 - 修改配置文件 `src/main/resources/application.yml` `src/main/resources/config.yml` 里的配置项
-- 创建数据库 `pybbs-springboot`
-- 运行 `mvn package` 命令，生成jar包，位置在 `target/pybbs.jar`
-- 运行 `java -jar pybbs.jar` 即可启动服务
-- 启动项目后表是自动创建的，然后将 `pybbs-springboot.sql` 导入数据库
+- 创建数据库 `cs-springboot`
+- 运行 `mvn package` 命令，生成jar包，位置在 `target/cs.jar`
+- 运行 `java -jar cs.jar` 即可启动服务
+- 启动项目后表是自动创建的，然后将 `cs-springboot.sql` 导入数据库
 - 浏览器 `http://localhost:8080/`
 - 默认帐户 `tomoya` `123123`
 
@@ -56,15 +56,15 @@
 ## 碰到问题怎么办?
 
 - 到 [https://bbs.tomoya.cn](https://bbs.tomoya.cn) 上提问答
-- 在Github上提 [Issues](https://github.com/tomoya92/pybbs/issues)
+- 在Github上提 [Issues](https://github.com/tomoya92/cs/issues)
 - 提问题的时候请将问题重现步骤描述清楚
 - 加QQ群：`419343003`
 
 ## 其它版本
 
-- golang版：[https://github.com/tomoya92/pybbs-go](https://github.com/tomoya92/pybbs-go)
-- springboot版：[https://github.com/tomoya92/pybbs](https://github.com/tomoya92/pybbs)
-- jfinal版：[https://github.com/tomoya92/pybbs/tree/v2.3](https://github.com/tomoya92/pybbs/tree/v2.3)
+- golang版：[https://github.com/tomoya92/cs-go](https://github.com/tomoya92/cs-go)
+- springboot版：[https://github.com/tomoya92/cs](https://github.com/tomoya92/cs)
+- jfinal版：[https://github.com/tomoya92/cs/tree/v2.3](https://github.com/tomoya92/cs/tree/v2.3)
 - ssm版：[https://github.com/ehuacui/ehuacui-bbs](https://github.com/ehuacui/ehuacui-bbs)
 
 ## 贡献
