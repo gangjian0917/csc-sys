@@ -22,3 +22,5 @@ spring:
             connect_timeout: 120s
 banner:
   location: banner.txt
+
+server.port: 80

@@ -1,24 +1,15 @@
 package com.jam.module.index.controller;
 
-import com.jam.javautils.Constants;
-import com.jam.javautils.encrypt.EncryptionUtil;
-import com.jam.javautils.string.StringUtil;
-import com.jam.javautils.web.CookieUtils;
-import com.jam.common.BaseController;
-import com.jam.common.config.SiteConfig;
-import com.jam.module.topic.elastic.ElasticTopicService;
-import com.jam.module.topic.entity.Topic;
-import com.jam.module.topic.service.TopicService;
-import com.jam.module.user.entity.User;
-import com.jam.module.user.service.UserService;
-import com.jam.util.JsonUtil;
-import com.jam.util.identicon.Identicon;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Date;
 
-import lombok.extern.log4j.Log4j;
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,14 +19,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
-import java.util.Optional;
+import com.jam.common.BaseController;
+import com.jam.common.config.SiteConfig;
+import com.jam.javautils.string.StringUtil;
+import com.jam.module.topic.elastic.ElasticTopicService;
+import com.jam.module.topic.entity.Topic;
+import com.jam.module.topic.service.TopicService;
+import com.jam.module.user.entity.User;
+import com.jam.module.user.service.UserService;
+import com.jam.util.JsonUtil;
+import com.jam.util.identicon.Identicon;
+
+import lombok.extern.log4j.Log4j;
 
 /**
  * Created by eclipse.
