@@ -21,25 +21,26 @@ import java.util.List;
 @Log4j
 public class MyUserDetailService implements UserDetailsService {
 
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private PermissionService permissionService;
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private PermissionService permissionService;
 
-    public UserDetails loadUserByUsername(String username) {
-        User user = userService.findByUsername(username);
-        if(user != null) {
-            List<Permission> permissions = permissionService.findByAdminUserId(user.getId());
-            List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-            for (Permission permission : permissions) {
-                GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(permission.getName());
-                grantedAuthorities.add(grantedAuthority);
-            }
-            return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
-        } else {
-            log.info("用户" + username + " 不存在");
-            throw new UsernameNotFoundException("用户名或密码不正确");
-        }
-    }
+	public UserDetails loadUserByUsername(String username) {
+		User user = userService.findByUsername(username);
+		if (user != null) {
+			List<Permission> permissions = permissionService.findByAdminUserId(user.getId());
+			List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+			for (Permission permission : permissions) {
+				GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(permission.getName());
+				grantedAuthorities.add(grantedAuthority);
+			}
+			return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+					grantedAuthorities);
+		} else {
+			log.info("用户" + username + " 不存在");
+			throw new UsernameNotFoundException("用户名或密码不正确");
+		}
+	}
 
 }

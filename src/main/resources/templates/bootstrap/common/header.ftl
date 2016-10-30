@@ -29,14 +29,14 @@
           <a href="/apidoc">API</a>
         </li>
         <li <#if page_tab == 'about'> class="active" </#if>>
-          <a href="/about">About</a>
+          <a href="/about">关于</a>
         </li>
         <#if _isAuthenticated?? && _isAuthenticated == true>
           <li class="hidden-md hidden-lg">
             <a href="/topic/create">发布话题</a>
           </li>
           <li <#if page_tab == 'notification'> class="active" </#if>>
-            <a href="/notification/list">Notice<span class="badge" id="badge"></span></a>
+            <a href="/notification/list">通知<span class="badge" id="badge"></span></a>
             <script>
               setInterval(function () {
                 $.ajax({
@@ -63,7 +63,7 @@
           <li <#if page_tab == 'setting'> class="active" </#if>>
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
                data-hover="dropdown">
-              Preferences
+              更多
               <span class="caret"></span>
             </a>
             <span class="dropdown-arrow"></span>

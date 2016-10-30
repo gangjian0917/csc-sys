@@ -59,7 +59,7 @@ VALUES
 
 INSERT INTO `cs_user` (`id`, `email`, `in_time`, `password`, `signature`, `url`, `username`, `avatar`)
 VALUES
-	(1,'jamesd@aliyun.com','2016-09-09 09:50:14','$2a$10$KkUG107R3ASTHfAHei.bweXWXgCa4cE1KhK.F0odzfE0r97aeeTXC','这家伙很懒，什么都没留下','http://jamesd.cn','jamesd','http://localhost/static/images/avatar/default.png');
+	(1,'jamesd@aliyun.com','2016-10-30 00:00:00','$2a$10$KkUG107R3ASTHfAHei.bweXWXgCa4cE1KhK.F0odzfE0r97aeeTXC','这家伙很懒，什么都没留下','http://jamesd.cn','admin','http://localhost/static/images/avatar/default.png');
 
 INSERT INTO `cs_user_role` (`user_id`, `role_id`)
 VALUES

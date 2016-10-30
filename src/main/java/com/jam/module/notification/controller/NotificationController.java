@@ -13,29 +13,30 @@ import com.jam.module.notification.service.NotificationService;
 import java.util.List;
 
 /**
- * Created by eclipse.
- * Copyright (c) 2016, All Rights Reserved.
+ * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
  */
 @Controller
 @RequestMapping("/notification")
 public class NotificationController extends BaseController {
 
-    @Autowired
-    private SiteConfig siteConfig;
-    @Autowired
-    private NotificationService notificationService;
+	@Autowired
+	private SiteConfig siteConfig;
+	@Autowired
+	private NotificationService notificationService;
 
-    /**
-     * 通知列表
-     * @param p
-     * @param model
-     * @return
-     */
-    @RequestMapping("/list")
-    public String list(Integer p, Model model) {
-        model.addAttribute("page", notificationService.findByTargetUserAndIsRead(p == null ? 1 : p, siteConfig.getPageSize(), getUser(), null));
-        //将未读消息置为已读
-        notificationService.updateByIsRead(getUser());
-        return render("/notification/list");
-    }
+	/**
+	 * 通知列表
+	 * 
+	 * @param p
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/list")
+	public String list(Integer p, Model model) {
+		model.addAttribute("page", notificationService.findByTargetUserAndIsRead(p == null ? 1 : p,
+				siteConfig.getPageSize(), getUser(), null));
+		// 将未读消息置为已读
+		notificationService.updateByIsRead(getUser());
+		return render("/notification/list");
+	}
 }

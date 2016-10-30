@@ -8,15 +8,14 @@ import com.jam.module.security.entity.Permission;
 import java.util.List;
 
 /**
- * Created by eclipse.
- * Copyright (c) 2016, All Rights Reserved.
+ * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
  */
 @Repository
 public interface PermissionDao extends JpaRepository<Permission, Integer> {
 
-    List<Permission> findByPidGreaterThan(int pid);
+	List<Permission> findByPidGreaterThan(int pid);
 
-    List<Permission> findByPid(int pid);
+	List<Permission> findByPid(int pid);
 
-    void deleteByPid(int pid);
+	void deleteByPid(int pid);
 }

@@ -10,18 +10,17 @@ import com.jam.module.topic.entity.Topic;
 import com.jam.module.user.entity.User;
 
 /**
- * Created by eclipse.
- * Copyright (c) 2016, All Rights Reserved.
+ * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
  */
 @Repository
 public interface CollectDao extends JpaRepository<Collect, Integer> {
 
-    Page<Collect> findByUser(User user, Pageable pageable);
+	Page<Collect> findByUser(User user, Pageable pageable);
 
-    long countByUser(User user);
+	long countByUser(User user);
 
-    long countByTopic(Topic topic);
+	long countByTopic(Topic topic);
 
-    Collect findByUserAndTopic(User user, Topic topic);
+	Collect findByUserAndTopic(User user, Topic topic);
 
 }

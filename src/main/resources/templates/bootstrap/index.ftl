@@ -41,8 +41,11 @@
       <#include "./components/welcome.ftl">
       <@welcome/>
     </#if>
-      <#--<#include "./components/qrcode.ftl"/>-->
-    <#--<@qrcode/>-->
+    <#include "./components/create_topic_anonymous.ftl"/>
+    <@create_topic_anonymous/>
+    <#include "./components/qrcode.ftl"/>
+    <@qrcode/>
+
   </div>
 </div>
 </@html>

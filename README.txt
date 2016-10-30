@@ -22,30 +22,30 @@
 - 权限使用springsecurity，基于url做的权限方便配置管理
 - 使用的springdata操作数据存储
 - 使用 [editor](https://github.com/lepture/editor) 作为 Markdown编辑器, 书写更方便, 还支持截图粘贴上传
-- 页面与 https://bbs.tomoya.cn 一样 
+- 页面与 https://bbs.jamesd.cn 一样 
 
 ## 如何开始
 
-- `git clone https://github.com/tomoya92/cs.git`
-- `git clone https://github.com/tomoya92/java-utils.git` 并按照readme的说明安装到本地 
+- `git clone https://github.com/jamesd/cs.git`
+- `git clone https://github.com/jamesd/java-utils.git` 并按照readme的说明安装到本地 
 - 修改配置文件 `src/main/resources/application.yml` `src/main/resources/config.yml` 里的配置项
 - 创建数据库 `cs-springboot`
 - 运行`csApplication.java`里的`main`方法
 - 启动项目后表是自动创建的，然后将 `cs-springboot.sql` 导入数据库
 - 浏览器 `http://localhost:8080/`
-- 默认帐户 `tomoya` `123123`
+- 默认帐户 `admin` `123123`
 
 ## 打jar包运行
 
-- `git clone https://github.com/tomoya92/cs.git`
-- `git clone https://github.com/tomoya92/java-utils.git` 并按照readme的说明安装到本地 
+- `git clone https://github.com/jamesd/cs.git`
+- `git clone https://github.com/jamesd/java-utils.git` 并按照readme的说明安装到本地 
 - 修改配置文件 `src/main/resources/application.yml` `src/main/resources/config.yml` 里的配置项
 - 创建数据库 `cs-springboot`
 - 运行 `mvn package` 命令，生成jar包，位置在 `target/cs.jar`
 - 运行 `java -jar cs.jar` 即可启动服务
 - 启动项目后表是自动创建的，然后将 `cs-springboot.sql` 导入数据库
 - 浏览器 `http://localhost:8080/`
-- 默认帐户 `tomoya` `123123`
+- 默认帐户 `jamesd` `123123`
 
 ## 待完成
 
@@ -55,16 +55,16 @@
 
 ## 碰到问题怎么办?
 
-- 到 [https://bbs.tomoya.cn](https://bbs.tomoya.cn) 上提问答
-- 在Github上提 [Issues](https://github.com/tomoya92/cs/issues)
+- 到 [https://bbs.jamesd.cn](https://bbs.jamesd.cn) 上提问答
+- 在Github上提 [Issues](https://github.com/jamesd/cs/issues)
 - 提问题的时候请将问题重现步骤描述清楚
 - 加QQ群：`419343003`
 
 ## 其它版本
 
-- golang版：[https://github.com/tomoya92/cs-go](https://github.com/tomoya92/cs-go)
-- springboot版：[https://github.com/tomoya92/cs](https://github.com/tomoya92/cs)
-- jfinal版：[https://github.com/tomoya92/cs/tree/v2.3](https://github.com/tomoya92/cs/tree/v2.3)
+- golang版：[https://github.com/jamesd/cs-go](https://github.com/jamesd/cs-go)
+- springboot版：[https://github.com/jamesd/cs](https://github.com/jamesd/cs)
+- jfinal版：[https://github.com/jamesd/cs/tree/v2.3](https://github.com/jamesd/cs/tree/v2.3)
 - ssm版：[https://github.com/ehuacui/ehuacui-bbs](https://github.com/ehuacui/ehuacui-bbs)
 
 ## 贡献

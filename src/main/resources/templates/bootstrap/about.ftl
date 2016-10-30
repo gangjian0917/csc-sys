@@ -12,13 +12,13 @@
           <a href="https://v2ex.com" target="_blank">v2ex</a>
         </p>
         <p>
-          欢迎提 <a href="https://github.com/tomoya92/cs/issues" target="_blank">issues</a>
+          欢迎提 <a href="https://github.com/jamesd/cs/issues" target="_blank">issues</a>
         </p>
         <p>开源地址:
         <ul>
           <li>
             Github: <a href="http://github.com/liygheart/cs"
-                       target="_blank">http://github.com/tomoya92/cs</a>
+                       target="_blank">http://github.com/jamesd/cs</a>
           </li>
           <li>
             Gitosc: <a href="http://git.oschina.net/20110516/cs"

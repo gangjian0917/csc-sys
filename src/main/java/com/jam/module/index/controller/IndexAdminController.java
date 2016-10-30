@@ -9,53 +9,55 @@ import com.jam.common.BaseController;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by eclipse.
- * Copyright (c) 2016, All Rights Reserved.
+ * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
  */
 @Controller
 @RequestMapping("/admin")
 public class IndexAdminController extends BaseController {
 
-    /**
-     * 首页
-     *
-     * @return
-     */
-    @RequestMapping("/index")
-    public String index() {
-        return render("/admin/index");
-    }
+	/**
+	 * 首页
+	 *
+	 * @return
+	 */
+	@RequestMapping("/index")
+	public String index() {
+		return render("/admin/index");
+	}
 
-    /**
-     * 索引首页
-     * @return
-     */
-    @RequestMapping("/indexed")
-    public String indexed(String s, Model model) {
-        model.addAttribute("s", s);
-        return render("/admin/indexed/index");
-    }
+	/**
+	 * 索引首页
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/indexed")
+	public String indexed(String s, Model model) {
+		model.addAttribute("s", s);
+		return render("/admin/indexed/index");
+	}
 
-    /**
-     * 索引全部话题
-     * @param response
-     * @return
-     */
-    @RequestMapping("/indexed/indexAll")
-    public String indexedAll(HttpServletResponse response) {
-        //TODO
-        return redirect(response, "/admin/indexed?s=add");
-    }
+	/**
+	 * 索引全部话题
+	 * 
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("/indexed/indexAll")
+	public String indexedAll(HttpServletResponse response) {
+		// TODO
+		return redirect(response, "/admin/indexed?s=add");
+	}
 
-    /**
-     * 删除全部索引
-     * @param response
-     * @return
-     */
-    @RequestMapping("/indexed/deleteAll")
-    public String deleteAllIndexed(HttpServletResponse response) {
-        //TODO
-        return redirect(response, "/admin/indexed?s=del");
-    }
+	/**
+	 * 删除全部索引
+	 * 
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("/indexed/deleteAll")
+	public String deleteAllIndexed(HttpServletResponse response) {
+		// TODO
+		return redirect(response, "/admin/indexed?s=del");
+	}
 
 }

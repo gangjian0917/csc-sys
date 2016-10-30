@@ -30,7 +30,7 @@
         <ul style="padding-left: 20px;">
           <li>nickname <code>String</code> 昵称</li>
         </ul>
-        <p>示例: <a href="/api/user/tomoya92">/api/user/tomoya92</a></p>
+        <p>示例: <a href="/api/user/jamesd">/api/user/jamesd</a></p>
         <hr>
         <h3 id="toc_6">发布话题</h3>
         <h4 id="toc_7">GET: /api/topic/create</h4>
@@ -60,7 +60,7 @@
         <ul style="padding-left: 20px;">
           <li>nickname <code>String</code> 用户昵称</li>
         </ul>
-        <p>示例: <a href="/api/collects/tomoya92">/api/collects/tomoya92</a></p>
+        <p>示例: <a href="/api/collects/jamesd">/api/collects/jamesd</a></p>
         <hr>
         <h3 id="toc_6">创建回复</h3>
         <h4 id="toc_7">GET: /api/reply/create</h4>

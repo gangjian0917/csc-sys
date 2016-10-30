@@ -12,8 +12,7 @@ import com.jam.module.user.entity.User;
 import java.util.Date;
 
 /**
- * Created by eclipse.
- * Copyright (c) 2016, All Rights Reserved.
+ * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
  */
 @Table(name = "cs_collect")
 @Entity
@@ -21,21 +20,21 @@ import java.util.Date;
 @Setter
 public class Collect extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    private int id;
+	@Id
+	@GeneratedValue
+	private int id;
 
-    //与话题的关联关系
-    @ManyToOne
-    @JoinColumn(nullable = false, name = "topic_id")
-    private Topic topic;
+	// 与话题的关联关系
+	@ManyToOne
+	@JoinColumn(nullable = false, name = "topic_id")
+	private Topic topic;
 
-    //与用户的关联关系
-    @ManyToOne
-    @JoinColumn(nullable = false, name = "user_id")
-    private User user;
+	// 与用户的关联关系
+	@ManyToOne
+	@JoinColumn(nullable = false, name = "user_id")
+	private User user;
 
-    @Column(name = "in_time")
-    private Date inTime;
+	@Column(name = "in_time")
+	private Date inTime;
 
 }

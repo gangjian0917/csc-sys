@@ -6,13 +6,12 @@ import freemarker.template.SimpleHash;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by eclipse.
- * Copyright (c) 2016, All Rights Reserved.
+ * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
  */
 @Component
 public class CustomTags extends SimpleHash {
 
-    public CustomTags(){
-        put("testList",new TestDirective());
-    }
+	public CustomTags() {
+		put("testList", new TestDirective());
+	}
 }

@@ -11,35 +11,33 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by eclipse.
- * Copyright (c) 2016, All Rights Reserved.
+ * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
  */
 @Entity
-@Table(name="cs_permission")
+@Table(name = "cs_permission")
 @Getter
 @Setter
 public class Permission extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    private int id;
+	@Id
+	@GeneratedValue
+	private int id;
 
-    //权限名称
-    private String name;
+	// 权限名称
+	private String name;
 
-    //权限描述
-    private String description;
+	// 权限描述
+	private String description;
 
-    //授权链接
-    private String url;
+	// 授权链接
+	private String url;
 
-    //父节点id
-    private int pid;
+	// 父节点id
+	private int pid;
 
-    /**
-     * 角色与权限的关联关系
-     * mappedBy: 就是 Role.class 里的 Set<Permission> 的对象名
-     */
-    @ManyToMany(mappedBy = "permissions")
-    private Set<Role> roles = new HashSet<>();
+	/**
+	 * 角色与权限的关联关系 mappedBy: 就是 Role.class 里的 Set<Permission> 的对象名
+	 */
+	@ManyToMany(mappedBy = "permissions")
+	private Set<Role> roles = new HashSet<>();
 }

@@ -8,17 +8,17 @@ import javax.annotation.PostConstruct;
 /**
  * Created by ZXF-PC1 on 2015/7/23.
  */
-//@Configuration
+// @Configuration
 public class FreeMarkerConfig {
 
-    @Autowired
-    private freemarker.template.Configuration configuration;
+	@Autowired
+	private freemarker.template.Configuration configuration;
 
-    @Autowired
-    private CustomTags customTags;
+	@Autowired
+	private CustomTags customTags;
 
-    @PostConstruct
-    public void setSharedVariable(){
-        configuration.setSharedVariable("custom",customTags);
-    }
+	@PostConstruct
+	public void setSharedVariable() {
+		configuration.setSharedVariable("custom", customTags);
+	}
 }
