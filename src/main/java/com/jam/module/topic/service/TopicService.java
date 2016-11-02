@@ -1,15 +1,5 @@
 package com.jam.module.topic.service;
 
-import com.jam.javautils.string.StringUtil;
-import com.jam.common.config.SiteConfig;
-import com.jam.module.reply.service.ReplyService;
-import com.jam.module.topic.dao.TopicDao;
-import com.jam.module.topic.elastic.ElasticTopic;
-import com.jam.module.topic.elastic.ElasticTopicService;
-import com.jam.module.topic.entity.Topic;
-import com.jam.module.user.entity.User;
-import com.jam.util.Constants;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,7 +8,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.jam.common.config.SiteConfig;
+import com.jam.module.reply.service.ReplyService;
+import com.jam.module.topic.dao.TopicDao;
+import com.jam.module.topic.elastic.ElasticTopic;
+import com.jam.module.topic.elastic.ElasticTopicService;
+import com.jam.module.topic.entity.Topic;
+import com.jam.module.user.entity.User;
+import com.jam.util.Constants;
 
 /**
  * Created by eclipse. Copyright (c) 2016, All Rights Reserved.

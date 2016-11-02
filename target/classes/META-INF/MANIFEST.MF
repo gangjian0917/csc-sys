@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: csportal
 Implementation-Version: 2.4
-Built-By: jamesd
+Built-By: gangjian
 Implementation-Vendor-Id: com.jam
-Build-Jdk: 1.8.0_91
+Build-Jdk: 1.8.0_72
 Implementation-URL: http://projects.spring.io/spring-boot/csportal/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
