@@ -14,7 +14,6 @@ import java.util.List;
 @Setter
 @Getter
 public class SiteConfig {
-
     private String name;
     private String baseUrl;
     private String cookieName;
@@ -30,5 +29,6 @@ public class SiteConfig {
     private String theme;
     private String beforeUrl;
     private boolean elastic;
-
+    private int adminRoleId;
+    private String replyPrivateSection;
 }

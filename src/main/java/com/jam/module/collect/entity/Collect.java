@@ -37,4 +37,9 @@ public class Collect extends BaseEntity {
 	@Column(name = "in_time")
 	private Date inTime;
 
+	@Override
+	public String toString() {
+		return "Collect [id=" + id + ", topic=" + topic + ", user=" + user + ", inTime=" + inTime + "]";
+	}
+
 }

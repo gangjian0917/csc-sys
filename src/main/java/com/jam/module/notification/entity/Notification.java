@@ -53,4 +53,10 @@ public class Notification extends BaseEntity {
 	@Column(columnDefinition = "text")
 	private String content;
 
+	@Override
+	public String toString() {
+		return "Notification [id=" + id + ", isRead=" + isRead + ", user=" + user + ", targetUser=" + targetUser
+				+ ", inTime=" + inTime + ", action=" + action + ", topic=" + topic + ", content=" + content + "]";
+	}
+
 }

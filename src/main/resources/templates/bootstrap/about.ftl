@@ -5,7 +5,7 @@
     <div class="panel panel-default">
       <div class="panel-heading"><a href="/">主页</a> / 关于</div>
       <div class="panel-body topic-detail-content">
-        <p>社区（论坛）系统.</p>
+        <p><b>Core System Community</b></p>
         <p>Thanks <a href="https://github.com/tomoya92/pybbs" target="_blank">pybbs</a>（朋也社区）</p>
         <p>layout reference:  
           <a href="https://cnodejs.org" target="_blank">cnodejs</a>,
@@ -32,6 +32,8 @@
           <li>redis</li>
           <li>solr</li>
         </ul>
+          <p>Version: N Release (0.0.1)
+          <p>Build id: 20161112-1000
       </div>
     </div>
   </div>

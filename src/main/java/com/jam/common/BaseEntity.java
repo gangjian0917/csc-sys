@@ -14,16 +14,18 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.persistence.Entity;
+
 /**
  * Created by eclipse.
  * Copyright (c) 2016, All Rights Reserved.
  */
 @Log4j
 public class BaseEntity {
-
     @Autowired
     private SiteConfig siteConfig;
-
+    @Autowired
+    private BaseController baseController;
     /**
      * 格式化日期
      *
@@ -51,6 +53,7 @@ public class BaseEntity {
         List<String> users = StringUtil.fetchUsers(content);
         for (String user : users) {
             content = content.replace("@" + user, "[@" + user + "](" + siteConfig.getCookieDomain() + "/user/" + user + ")");
+            baseController.getSiteConfig();
         }
         //markdown 转 html 并返回
         return Jsoup.clean(MarkdownUtil.pegDown(content), Whitelist.relaxed().addTags("input").addAttributes("input", "checked", "type"));

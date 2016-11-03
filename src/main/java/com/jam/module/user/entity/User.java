@@ -56,4 +56,11 @@ public class User extends BaseEntity {
 			@JoinColumn(name = "role_id") })
 	private Set<Role> roles = new HashSet<>();
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", avatar=" + avatar
+				+ ", email=" + email + ", signature=" + signature + ", url=" + url + ", inTime=" + inTime + ", roles="
+				+ roles + "]";
+	}
+
 }

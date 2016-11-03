@@ -45,4 +45,10 @@ public class Suggestion extends BaseEntity {
 	@Column(name = "reply_count")
 	private int replyCount;
 
+	@Override
+	public String toString() {
+		return "Suggestion [id=" + id + ", title=" + title + ", content=" + content + ", inTime=" + inTime
+				+ ", modityTime=" + modityTime + ", replyCount=" + replyCount + "]";
+	}
+
 }

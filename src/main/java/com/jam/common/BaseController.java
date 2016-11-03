@@ -23,8 +23,12 @@ public class BaseController {
     private SiteConfig siteConfig;
     @Autowired
     private UserService userService;
+    
+    public SiteConfig getSiteConfig() {
+		return siteConfig;
+	}
 
-    /**
+	/**
      * 带参重定向
      *
      * @param path

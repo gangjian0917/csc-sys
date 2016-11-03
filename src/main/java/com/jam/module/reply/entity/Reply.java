@@ -12,8 +12,7 @@ import com.jam.module.user.entity.User;
 import java.util.Date;
 
 /**
- * Created by eclipse.
- * Copyright (c) 2016, All Rights Reserved.
+ * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
  */
 @Entity
 @Table(name = "cs_reply")
@@ -21,32 +20,38 @@ import java.util.Date;
 @Setter
 public class Reply extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    private int id;
+	@Id
+	@GeneratedValue
+	private int id;
 
-    //回复的内容
-    @Column(columnDefinition = "text", nullable = false)
-    private String content;
+	// 回复的内容
+	@Column(columnDefinition = "text", nullable = false)
+	private String content;
 
-    //回复时间
-    private Date inTime;
+	// 回复时间
+	private Date inTime;
 
-    //点赞数量
-    private int up;
+	// 点赞数量
+	private int up;
 
-    //与话题的关联关系
-    @ManyToOne
-    @JoinColumn(nullable = false, name = "topic_id")
-    private Topic topic;
+	// 与话题的关联关系
+	@ManyToOne
+	@JoinColumn(nullable = false, name = "topic_id")
+	private Topic topic;
 
-    //与用户的关联关系
-    @ManyToOne
-    @JoinColumn(nullable = false, name = "user_id")
-    private User user;
+	// 与用户的关联关系
+	@ManyToOne
+	@JoinColumn(nullable = false, name = "user_id")
+	private User user;
 
-    //对回复点赞的用户id，逗号隔开(英文逗号)
-    @Column(columnDefinition = "text")
-    private String upIds;
+	// 对回复点赞的用户id，逗号隔开(英文逗号)
+	@Column(columnDefinition = "text")
+	private String upIds;
+
+	@Override
+	public String toString() {
+		return "Reply [id=" + id + ", content=" + content + ", inTime=" + inTime + ", up=" + up + ", topic=" + topic
+				+ ", user=" + user + ", upIds=" + upIds + "]";
+	}
 
 }

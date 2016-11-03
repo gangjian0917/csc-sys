@@ -1,15 +1,10 @@
 package com.jam.module.topic.controller;
 
-import com.jam.javautils.string.StringUtil;
-import com.jam.common.BaseController;
-import com.jam.module.collect.service.CollectService;
-import com.jam.module.reply.entity.Reply;
-import com.jam.module.reply.service.ReplyService;
-import com.jam.module.security.service.RoleService;
-import com.jam.module.topic.entity.Topic;
-import com.jam.module.topic.service.TopicService;
-import com.jam.module.user.entity.User;
-import com.jam.module.user.service.UserService;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,11 +13,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletResponse;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import com.jam.common.BaseController;
+import com.jam.common.config.SiteConfig;
+import com.jam.javautils.string.StringUtil;
+import com.jam.module.collect.service.CollectService;
+import com.jam.module.reply.entity.Reply;
+import com.jam.module.reply.service.ReplyService;
+import com.jam.module.security.entity.Role;
+import com.jam.module.security.service.RoleService;
+import com.jam.module.topic.entity.Topic;
+import com.jam.module.topic.service.TopicService;
+import com.jam.module.user.entity.User;
+import com.jam.module.user.service.UserService;
 
 /**
  * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
@@ -30,7 +32,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/topic")
 public class TopicController extends BaseController {
-
 	@Autowired
 	private TopicService topicService;
 	@Autowired
@@ -134,9 +135,8 @@ public class TopicController extends BaseController {
 	public String detail(@PathVariable Integer id, HttpServletResponse response, Model model) {
 		if (id != null) {
 			Topic topic = topicService.findById(id);
-			
 			List<Reply> replies = replyService.findByTopicId(id);
-			
+			replies = getPrivateReplies(topic, replies);
 			model.addAttribute("topic", topic);
 			model.addAttribute("replies", replies);
 			model.addAttribute("user", getUser());
@@ -150,9 +150,10 @@ public class TopicController extends BaseController {
 			return null;
 		}
 	}
-	
+
 	/**
-	 * "管理通告-非公开回复"   只能查看 管理员和自己的回复
+	 * "管理通告-非公开回复" 只能查看 管理员和自己的回复
+	 * 
 	 * @param topic
 	 * @param replies
 	 * @return
@@ -160,15 +161,40 @@ public class TopicController extends BaseController {
 	private List<Reply> getPrivateReplies(Topic topic, List<Reply> replies) {
 		List<Reply> result = new ArrayList<Reply>();
 		User loginUser = getUser();
-		for (Reply r : replies) {
-			if ("管理通告-非公开回复".equals(topic.getTab())) {
-				if (loginUser.getId() == topic.getUser().getId()) {
 
+		if (getSiteConfig().getReplyPrivateSection().equals(topic.getTab())) {
+			if (loginUser == null) {
+				// 未登录用户禁止查看"管理通告-非公开回复"下面的回复
+				Reply reply = new Reply();
+				reply.setId(Integer.MAX_VALUE);
+				reply.setInTime(new Date());
+				reply.setTopic(topic);
+				reply.setUp(0);
+				reply.setUpIds("0");
+				reply.setUser(userService.findById(1));
+				reply.setContent("无法查看该板块中的回复");
+				result.add(reply);
+				return result;
+			}
+			for (Reply r : replies) {
+				// 话题的主人或者 回复者 或者 管理员，可以看到所有回复
+				if (loginUser.getId() == topic.getUser().getId() || loginUser.getId() == r.getUser().getId()
+						|| isAdminRole(loginUser)) {
+					result.add(r);
 				}
 			}
 		}
 
 		return result;
+	}
+
+	private boolean isAdminRole(User user) {
+		for (Role r : user.getRoles()) {
+			if (r.getId() == getSiteConfig().getAdminRoleId()) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

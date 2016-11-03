@@ -68,4 +68,11 @@ public class Topic extends BaseEntity {
 	@Column(columnDefinition = "text")
 	// 点赞用户id，逗号隔开(英文逗号)
 	private String upIds;
+
+	@Override
+	public String toString() {
+		return "Topic [id=" + id + ", tab=" + tab + ", title=" + title + ", content=" + content + ", inTime=" + inTime
+				+ ", modityTime=" + modityTime + ", top=" + top + ", good=" + good + ", up=" + up + ", view=" + view
+				+ ", user=" + user + ", replyCount=" + replyCount + ", upIds=" + upIds + "]";
+	}
 }

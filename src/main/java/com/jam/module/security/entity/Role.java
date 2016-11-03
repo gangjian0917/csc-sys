@@ -39,4 +39,10 @@ public class Role extends BaseEntity {
 			@JoinColumn(name = "permission_id") })
 	private Set<Permission> permissions = new HashSet<>();
 
+	@Override
+	public String toString() {
+		return "Role [id=" + id + ", name=" + name + ", description=" + description + ", users=" + users
+				+ ", permissions=" + permissions + "]";
+	}
+
 }

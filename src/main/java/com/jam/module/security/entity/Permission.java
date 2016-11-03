@@ -40,4 +40,11 @@ public class Permission extends BaseEntity {
 	 */
 	@ManyToMany(mappedBy = "permissions")
 	private Set<Role> roles = new HashSet<>();
+
+	@Override
+	public String toString() {
+		return "Permission [id=" + id + ", name=" + name + ", description=" + description + ", url=" + url + ", pid="
+				+ pid + ", roles=" + roles + "]";
+	}
+
 }

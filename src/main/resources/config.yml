@@ -20,3 +20,5 @@ site:
   theme: bootstrap
   beforeUrl: beforeUrl
   elastic: true # true 开启 false 关闭
+  adminRoleId: 1
+  replyPrivateSection: 管理通告-非公开回复
