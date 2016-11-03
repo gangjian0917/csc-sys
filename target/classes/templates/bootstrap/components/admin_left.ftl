@@ -18,5 +18,8 @@
   <#if _roles?seq_contains("index:all") || _roles?seq_contains("index:deleteAll")>
     <a href="/admin/indexed" class="list-group-item <#if page_tab == "indexed">active</#if>">索引管理</a>
   </#if>
+  <#if _roles?seq_contains("suggestion:list")>
+    <a href="/admin/suggestion/list" class="list-group-item <#if page_tab == "suggestion">active</#if>">匿名吐槽</a>
+  </#if>
 </div>
 </#macro>

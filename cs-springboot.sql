@@ -23,11 +23,11 @@ VALUES
 	(20,'角色列表','role:list',6,'/admin/role/list'),
 	(21,'角色添加','role:add',6,'/admin/role/add'),
 	(22,'角色编辑','role:edit',6,'/admin/role/*/edit'),
-	(23,'角色删除','role:delete',6,'/admin/role/*/delete');
-	(24,'吐槽列表','suggestion:list',7,'/admin/suggestion/list'),
-	(25,'吐槽添加','suggestion:add',7,'/admin/suggestion/add'),
-	(26,'吐槽编辑','suggestion:edit',7,'/admin/suggestion/*/edit'),
-	(27,'吐槽删除','suggestion:delete',7,'/admin/suggestion/*/delete');
+	(23,'角色删除','role:delete',6,'/admin/role/*/delete'),
+	(24,'吐槽列表','suggestion:list',1,'/admin/suggestion/list'),
+	(25,'吐槽添加','suggestion:add',1,'/admin/suggestion/add'),
+	(26,'吐槽编辑','suggestion:edit',1,'/admin/suggestion/*/edit'),
+	(27,'吐槽删除','suggestion:delete',1,'/admin/suggestion/*/delete');
 
 INSERT INTO `cs_role` (`id`, `description`, `name`)
 VALUES
@@ -59,10 +59,10 @@ VALUES
 	(1,20),
 	(1,21),
 	(1,22),
-	(1,23);
-	(1,24);
-	(1,25);
-	(1,26);
+	(1,23),
+	(1,24),
+	(1,25),
+	(1,26),
 	(1,27);
 
 INSERT INTO `cs_user` (`id`, `email`, `in_time`, `password`, `signature`, `url`, `username`, `avatar`)

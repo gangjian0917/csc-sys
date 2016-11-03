@@ -5,9 +5,11 @@ import com.jam.common.BaseController;
 import com.jam.module.collect.service.CollectService;
 import com.jam.module.reply.entity.Reply;
 import com.jam.module.reply.service.ReplyService;
+import com.jam.module.security.service.RoleService;
 import com.jam.module.topic.entity.Topic;
 import com.jam.module.topic.service.TopicService;
 import com.jam.module.user.entity.User;
+import com.jam.module.user.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletResponse;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,6 +37,10 @@ public class TopicController extends BaseController {
 	private ReplyService replyService;
 	@Autowired
 	private CollectService collectService;
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private RoleService roleService;
 
 	/**
 	 * 创建话题
@@ -126,7 +134,9 @@ public class TopicController extends BaseController {
 	public String detail(@PathVariable Integer id, HttpServletResponse response, Model model) {
 		if (id != null) {
 			Topic topic = topicService.findById(id);
+			
 			List<Reply> replies = replyService.findByTopicId(id);
+			
 			model.addAttribute("topic", topic);
 			model.addAttribute("replies", replies);
 			model.addAttribute("user", getUser());
@@ -139,6 +149,26 @@ public class TopicController extends BaseController {
 			renderText(response, "话题不存在");
 			return null;
 		}
+	}
+	
+	/**
+	 * "管理通告-非公开回复"   只能查看 管理员和自己的回复
+	 * @param topic
+	 * @param replies
+	 * @return
+	 */
+	private List<Reply> getPrivateReplies(Topic topic, List<Reply> replies) {
+		List<Reply> result = new ArrayList<Reply>();
+		User loginUser = getUser();
+		for (Reply r : replies) {
+			if ("管理通告-非公开回复".equals(topic.getTab())) {
+				if (loginUser.getId() == topic.getUser().getId()) {
+
+				}
+			}
+		}
+
+		return result;
 	}
 
 	/**

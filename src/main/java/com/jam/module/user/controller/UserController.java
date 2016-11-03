@@ -1,16 +1,6 @@
 package com.jam.module.user.controller;
 
-import com.jam.javautils.encrypt.EncryptionUtil;
-import com.jam.javautils.string.StringUtil;
-import com.jam.javautils.web.CookieUtils;
-import com.jam.common.BaseController;
-import com.jam.common.config.SiteConfig;
-import com.jam.module.collect.entity.Collect;
-import com.jam.module.collect.service.CollectService;
-import com.jam.module.reply.service.ReplyService;
-import com.jam.module.topic.service.TopicService;
-import com.jam.module.user.entity.User;
-import com.jam.module.user.service.UserService;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import com.jam.common.BaseController;
+import com.jam.common.config.SiteConfig;
+import com.jam.module.collect.service.CollectService;
+import com.jam.module.reply.service.ReplyService;
+import com.jam.module.topic.service.TopicService;
+import com.jam.module.user.entity.User;
+import com.jam.module.user.service.UserService;
 
 /**
  * Created by eclipse. Copyright (c) 2016, All Rights Reserved.

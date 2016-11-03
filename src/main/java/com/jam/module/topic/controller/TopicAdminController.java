@@ -14,9 +14,6 @@ import com.jam.module.topic.entity.Topic;
 import com.jam.module.topic.service.TopicService;
 import com.jam.util.JsonUtil;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
  */

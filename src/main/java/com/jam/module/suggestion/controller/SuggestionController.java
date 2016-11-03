@@ -1,6 +1,7 @@
 package com.jam.module.suggestion.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,10 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.jam.common.BaseController;
 import com.jam.javautils.string.StringUtil;
 import com.jam.module.collect.service.CollectService;
+import com.jam.module.reply.entity.Reply;
 import com.jam.module.reply.service.ReplyService;
 import com.jam.module.suggestion.entity.Suggestion;
 import com.jam.module.suggestion.service.SuggestionService;
-import com.jam.module.user.entity.User;
+import com.jam.module.topic.entity.Topic;
 
 /**
  * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
@@ -30,11 +32,9 @@ public class SuggestionController extends BaseController {
 	private SuggestionService suggestionService;
 	@Autowired
 	private ReplyService replyService;
-	@Autowired
-	private CollectService collectService;
 
 	/**
-	 * 创建话题
+	 * 创建吐槽
 	 *
 	 * @return
 	 */
@@ -44,7 +44,7 @@ public class SuggestionController extends BaseController {
 	}
 
 	/**
-	 * 保存话题
+	 * 保存吐槽
 	 *
 	 * @param title
 	 * @param content
@@ -52,26 +52,17 @@ public class SuggestionController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(String tab, String title, String content, Model model, HttpServletResponse response) {
+	public String save(String title, String content, Model model, HttpServletResponse response) {
 		String errors = "";
 		if (StringUtil.isBlank(title)) {
 			errors = "标题不能为空";
-		} else if (StringUtil.isBlank(tab)) {
-			errors = "版块不能为空";
 		} else {
-			User user = getUser();
 			Suggestion suggestion = new Suggestion();
-			suggestion.setTab(tab);
 			suggestion.setTitle(title);
 			suggestion.setContent(content);
 			suggestion.setInTime(new Date());
-			suggestion.setUp(0);
-			suggestion.setView(0);
-			suggestion.setUser(user);
-			suggestion.setGood(false);
-			suggestion.setTop(false);
 			suggestionService.save(suggestion);
-			return redirect(response, "/suggestion/" + suggestion.getId());
+			return redirect(response, "/");
 		}
 		model.addAttribute("errors", errors);
 		return render("/suggestion/create");
@@ -81,7 +72,7 @@ public class SuggestionController extends BaseController {
 	public String edit(@PathVariable int id, HttpServletResponse response, Model model) {
 		Suggestion suggestion = suggestionService.findById(id);
 		if (suggestion == null) {
-			renderText(response, "话题不存在");
+			renderText(response, "吐槽不存在");
 			return null;
 		} else {
 			model.addAttribute("suggestion", suggestion);
@@ -90,7 +81,7 @@ public class SuggestionController extends BaseController {
 	}
 
 	/**
-	 * 更新话题
+	 * 更新吐槽
 	 *
 	 * @param title
 	 * @param content
@@ -98,47 +89,17 @@ public class SuggestionController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.POST)
-	public String update(@PathVariable Integer id, String tab, String title, String content, Model model,
+	public String update(@PathVariable Integer id, String title, String content, Model model,
 			HttpServletResponse response) {
 		Suggestion suggestion = suggestionService.findById(id);
-		User user = getUser();
-		if (suggestion.getUser().getId() == user.getId()) {
-			suggestion.setTab(tab);
-			suggestion.setTitle(title);
-			suggestion.setContent(content);
-			suggestionService.save(suggestion);
-			return redirect(response, "/suggestion/" + suggestion.getId());
-		} else {
-			renderText(response, "非法操作");
-			return null;
-		}
+		suggestion.setTitle(title);
+		suggestion.setContent(content);
+		suggestionService.save(suggestion);
+		return redirect(response, "/suggestion/" + suggestion.getId());
 	}
 
 	/**
-	 * 话题详情
-	 *
-	 * @param id
-	 * @param model
-	 * @return
-	 */
-	/*
-	 * @RequestMapping("/{id}") public String detail(@PathVariable Integer id,
-	 * HttpServletResponse response, Model model) { if (id != null) { Suggestion
-	 * suggestion = suggestionService.findById(id); List<Reply> replies =
-	 * replyService.findByTopicId(id); model.addAttribute("suggestion",
-	 * suggestion); model.addAttribute("replies", replies);
-	 * model.addAttribute("user", getUser()); model.addAttribute("author",
-	 * suggestion.getUser()); model.addAttribute("otherSuggestions",
-	 * suggestionService.findByUser(1, 7, suggestion.getUser()));
-	 * model.addAttribute("collect",
-	 * collectService.findByUserAndTopic(getUser(), suggestion));
-	 * model.addAttribute("collectCount",
-	 * collectService.countByTopic(suggestion)); return
-	 * render("/suggestion/detail"); } else { renderText(response, "话题不存在");
-	 * return null; } }
-	 */
-	/**
-	 * 删除话题
+	 * 删除吐槽
 	 *
 	 * @param id
 	 * @return

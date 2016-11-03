@@ -1,6 +1,6 @@
 site:
   name: 核心系统社区
-  baseUrl: http://localhost/
+  baseUrl: http://localhost
   sessionName: _user
   adminSessionName: _admin_user
   cookieName: _token
@@ -15,7 +15,8 @@ site:
     - 问答
     - 新闻
     - 博客
-    - 招聘
+    - 管理通告
+    - 管理通告-非公开回复
   theme: bootstrap
   beforeUrl: beforeUrl
   elastic: true # true 开启 false 关闭
