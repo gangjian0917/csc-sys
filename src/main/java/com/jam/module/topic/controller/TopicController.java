@@ -172,15 +172,16 @@ public class TopicController extends BaseController {
 				reply.setUp(0);
 				reply.setUpIds("0");
 				reply.setUser(userService.findById(1));
-				reply.setContent("无法查看该板块中的回复");
+				reply.setContent("游客不能查看该板块中的回复");
 				result.add(reply);
 				return result;
 			}
-			for (Reply r : replies) {
-				// 话题的主人或者 回复者 或者 管理员，可以看到所有回复
-				if (loginUser.getId() == topic.getUser().getId() || loginUser.getId() == r.getUser().getId()
-						|| isAdminRole(loginUser)) {
-					result.add(r);
+
+			for (Reply re : replies) {
+				// 可以看到这条回复的人包括：话题的主人、回复的作者、管理员、管理员的回复
+				if (loginUser.getId() == topic.getUser().getId() || loginUser.getId() == re.getUser().getId()
+						|| isAdminRole(loginUser) || isAdminReply(re)) {
+					result.add(re);
 				}
 			}
 		}
@@ -188,13 +189,30 @@ public class TopicController extends BaseController {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
 	private boolean isAdminRole(User user) {
-		for (Role r : user.getRoles()) {
-			if (r.getId() == getSiteConfig().getAdminRoleId()) {
-				return true;
+		if (user != null) {
+			for (Role r : user.getRoles()) {
+				if (r.getId() == getSiteConfig().getAdminRoleId()) {
+					return true;
+				}
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * 
+	 * @param reply
+	 * @return
+	 */
+	private boolean isAdminReply(Reply reply) {
+		User user = reply.getUser();
+		return isAdminRole(user);
 	}
 
 	/**

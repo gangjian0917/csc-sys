@@ -107,5 +107,14 @@ public class NotificationService {
 	public void updateByIsRead(User targetUser) {
 		notificationDao.updateByIsRead(targetUser);
 	}
+	
+    /**
+     * 根据话题删除回复
+     *
+     * @param topicId
+     */
+    public void deleteByTopic(int topicId) {
+    	notificationDao.deleteByTopicId(topicId);
+    }
 
 }

@@ -31,4 +31,5 @@ public class SiteConfig {
     private boolean elastic;
     private int adminRoleId;
     private String replyPrivateSection;
+    
 }

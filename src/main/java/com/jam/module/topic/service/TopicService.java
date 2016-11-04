@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jam.common.config.SiteConfig;
+import com.jam.module.notification.dao.NotificationDao;
+import com.jam.module.notification.service.NotificationService;
 import com.jam.module.reply.service.ReplyService;
 import com.jam.module.topic.dao.TopicDao;
 import com.jam.module.topic.elastic.ElasticTopic;
@@ -27,11 +29,14 @@ public class TopicService {
 	@Autowired
 	private SiteConfig siteConfig;
 	@Autowired
+	private NotificationService notificationService;
+	@Autowired
 	private TopicDao topicDao;
 	@Autowired
 	private ReplyService replyService;
 	@Autowired
 	private ElasticTopicService elasticTopicService;
+
 
 	public void save(Topic topic) {
 		topicDao.save(topic);
@@ -59,9 +64,13 @@ public class TopicService {
 		if (siteConfig.isElastic()) {
 			new Thread(() -> {
 				ElasticTopic elasticTopic = elasticTopicService.findByTopicId(id);
-				elasticTopicService.delete(elasticTopic);
+				if (elasticTopic != null) {
+					elasticTopicService.delete(elasticTopic);
+				}
 			}).start();
 		}
+		//删除通知
+		notificationService.deleteByTopic(id);
 		// 删除话题下面的回复
 		replyService.deleteByTopic(id);
 		// 删除话题
