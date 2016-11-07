@@ -4,7 +4,7 @@ Implementation-Version: 2.4
 Built-By: gangjian
 Implementation-Vendor-Id: com.jam
 Build-Jdk: 1.8.0_72
-Implementation-URL: http://projects.spring.io/spring-boot/csportal/
+Implementation-URL: http://projects.spring.io/spring-boot/csc-sys/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
 
