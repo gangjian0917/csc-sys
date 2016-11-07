@@ -88,6 +88,13 @@ public class BaseController {
         }
         return null;
     }
+    
+    /**
+     * 
+     */
+    protected void destoryPrincipal() {
+        SecurityContextHolder.getContext().getAuthentication().setAuthenticated(false);
+    }
 
     /**
      * 获取用户信息

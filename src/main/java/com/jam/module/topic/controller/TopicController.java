@@ -6,6 +6,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
+import org.mockito.internal.util.collections.ListUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.jam.common.AppProps;
 import com.jam.common.BaseController;
 import com.jam.common.config.SiteConfig;
 import com.jam.javautils.string.StringUtil;
@@ -25,6 +29,7 @@ import com.jam.module.topic.entity.Topic;
 import com.jam.module.topic.service.TopicService;
 import com.jam.module.user.entity.User;
 import com.jam.module.user.service.UserService;
+import com.jam.util.MarkdownUtil;
 
 /**
  * Created by eclipse. Copyright (c) 2016, All Rights Reserved.
@@ -179,9 +184,17 @@ public class TopicController extends BaseController {
 
 			for (Reply re : replies) {
 				// 可以看到这条回复的人包括：话题的主人、回复的作者、管理员、管理员的回复
-				if (loginUser.getId() == topic.getUser().getId() || loginUser.getId() == re.getUser().getId()
-						|| isAdminRole(loginUser) || isAdminReply(re)) {
+				if (isAdminRole(loginUser)) {
 					result.add(re);
+				} else if (loginUser.getId() == topic.getUser().getId() || loginUser.getId() == re.getUser().getId()
+						|| isAdminReply(re)) {
+					if (isContainAt(re.getContent())) {
+						if (isAtMe(re.getContent(), loginUser.getUsername())) {
+							result.add(re);
+						}
+					} else {
+						result.add(re);
+					}
 				}
 			}
 		}
@@ -213,6 +226,40 @@ public class TopicController extends BaseController {
 	private boolean isAdminReply(Reply reply) {
 		User user = reply.getUser();
 		return isAdminRole(user);
+	}
+
+	private boolean isContainAt(String content) {
+		List<String> users = StringUtil.fetchUsers(content);
+		if (users != null && users.size() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * 回复中，如果有@用户。则只有被@的用户 和 管理员，才能看到该回复
+	 *
+	 * @param content
+	 * @return
+	 */
+	private boolean isAtMe(String content, String loginUser) {
+		boolean result = false;
+		if (StringUtil.isBlank(content) || StringUtil.isBlank(loginUser))
+			return result;
+		// 处理@
+		List<String> users = StringUtil.fetchUsers(content);
+		if (users == null || users.size() == 0) {
+			result = false;
+		} else {
+			for (String user : users) {
+				if (loginUser.equals(user)) {
+					result = true;
+				}
+			}
+		}
+
+		return result;
 	}
 
 	/**

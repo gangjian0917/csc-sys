@@ -29,9 +29,9 @@
 - `git clone https://github.com/jamesd/cs.git`
 - `git clone https://github.com/jamesd/java-utils.git` 并按照readme的说明安装到本地 
 - 修改配置文件 `src/main/resources/application.yml` `src/main/resources/config.yml` 里的配置项
-- 创建数据库 `cs-springboot`
+- 创建数据库 `csc-sys`
 - 运行`csApplication.java`里的`main`方法
-- 启动项目后表是自动创建的，然后将 `cs-springboot.sql` 导入数据库
+- 启动项目后表是自动创建的，然后将 `csc-sys.sql` 导入数据库
 - 浏览器 `http://localhost:8080/`
 - 默认帐户 `admin` `123123`
 
@@ -40,10 +40,10 @@
 - `git clone https://github.com/jamesd/cs.git`
 - `git clone https://github.com/jamesd/java-utils.git` 并按照readme的说明安装到本地 
 - 修改配置文件 `src/main/resources/application.yml` `src/main/resources/config.yml` 里的配置项
-- 创建数据库 `cs-springboot`
+- 创建数据库 `csc-sys`
 - 运行 `mvn package` 命令，生成jar包，位置在 `target/cs.jar`
 - 运行 `java -jar cs.jar` 即可启动服务
-- 启动项目后表是自动创建的，然后将 `cs-springboot.sql` 导入数据库
+- 启动项目后表是自动创建的，然后将 `csc-sys.sql` 导入数据库
 - 浏览器 `http://localhost:8080/`
 - 默认帐户 `jamesd` `123123`
 

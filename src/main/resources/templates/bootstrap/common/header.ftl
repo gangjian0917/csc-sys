@@ -69,6 +69,7 @@
             <span class="dropdown-arrow"></span>
             <ul class="dropdown-menu">
               <li><a href="/user/setting">个人资料</a></li>
+              <li><a href="/modify">修改密码</a></li>
               <#if _roles?seq_contains("admin:index")>
                 <li><a href="/admin/index">进入后台</a></li>
               </#if>

@@ -10,7 +10,7 @@
         <form action="/user/setting" method="post" id="userProfileForm">
           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
           <div class="form-group">
-            <label for="nickname">昵称</label>
+            <label for="nickname">用户名</label>
             <input type="text" disabled class="form-control" id="username" value="${user.username}"/>
           </div>
           <div class="form-group">

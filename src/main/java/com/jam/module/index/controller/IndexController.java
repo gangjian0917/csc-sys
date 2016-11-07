@@ -99,6 +99,20 @@ public class IndexController extends BaseController {
 	}
 
 	/**
+	 * 进入密码修改页面
+	 *
+	 * @return
+	 */
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public String toModify(Model model, HttpServletResponse response) {
+		if (getUser() == null) {
+			return redirect(response, "/");
+		}
+		model.addAttribute("user", getUser());
+		return render("/modify");
+	}
+
+	/**
 	 * 注册验证
 	 *
 	 * @param username
@@ -106,7 +120,8 @@ public class IndexController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String register(String username, String password, HttpServletResponse response, Model model) {
+	public String register(String username, String password, String passwordcheck, HttpServletResponse response,
+			Model model) {
 		User user = userService.findByUsername(username);
 		if (user != null) {
 			model.addAttribute("errors", "用户名已经被注册");
@@ -114,6 +129,10 @@ public class IndexController extends BaseController {
 			model.addAttribute("errors", "用户名不能为空");
 		} else if (StringUtil.isBlank(password)) {
 			model.addAttribute("errors", "密码不能为空");
+		} else if (StringUtil.isBlank(passwordcheck)) {
+			model.addAttribute("errors", "再次输入密码不能为空");
+		} else if (!password.equals(passwordcheck)) {
+			model.addAttribute("errors", "两次输入的密码不一致");
 		} else {
 			String avatarName = StringUtil.getUUID();
 			identicon.generator(avatarName);
@@ -126,6 +145,42 @@ public class IndexController extends BaseController {
 			return redirect(response, "/login?s=reg");
 		}
 		return render("/register");
+	}
+
+	/**
+	 * 修改密码验证
+	 *
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modify(String password, String passwordnew, String passwordnewcheck, HttpServletResponse response,
+			Model model) {
+		User u = getUser();
+		if (u == null) {
+			return redirect(response, "/");
+		}
+		String userpasswd = u.getPassword();
+		if (StringUtil.isBlank(password)) {
+			model.addAttribute("errors", "原密码不能为空");
+		} else if (StringUtil.isBlank(passwordnew)) {
+			model.addAttribute("errors", "新密码不能为空");
+		} else if (StringUtil.isBlank(passwordnewcheck)) {
+			model.addAttribute("errors", "再次输入新密码不能为空");
+		} else if (!passwordnew.equals(passwordnewcheck)) {
+			model.addAttribute("errors", "两次输入的新密码不一致");
+		} else if (!new BCryptPasswordEncoder().matches(password, userpasswd)) {
+			model.addAttribute("errors", "原密码输入错误");
+		} else {
+			u.setPassword(new BCryptPasswordEncoder().encode(passwordnew));
+			userService.save(u);
+			destoryPrincipal();
+			return redirect(response, "/login");
+		}
+
+		model.addAttribute("user", getUser());
+		return render("/modify");
 	}
 
 	/**
@@ -168,6 +223,16 @@ public class IndexController extends BaseController {
 		model.addAttribute("q", q);
 		model.addAttribute("page", elasticTopicService.pageByKeyword(p == null ? 1 : p, siteConfig.getPageSize(), q));
 		return render("/search");
+	}
+
+	/**
+	 * 查看协议
+	 *
+	 * @return
+	 */
+	@RequestMapping("/protocol")
+	public String protocol(HttpServletResponse response) {
+		return render("/protocol");
 	}
 
 }

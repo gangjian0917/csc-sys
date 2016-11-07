@@ -2,7 +2,7 @@ spring:
   freemarker:
     cache: false
   datasource:
-    url: jdbc:mysql://localhost/cs-springboot?useSSL=false
+    url: jdbc:mysql://localhost/csc-sys?useSSL=false
     username: root
     password: mysql
   jpa:
