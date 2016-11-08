@@ -1,15 +1,15 @@
 site:
   name: 核心系统社区 CoreSystem Community
-  baseUrl: http://localhost
+  baseUrl: http://csc.flyme.cn/
   sessionName: _user
   adminSessionName: _admin_user
   cookieName: _token
   adminCookieName: _admin_token
-  cookieDomain: localhost
+  cookieDomain: csc.flyme.cn
   cookieExpireTime: 30 # 单位天
   pageSize: 20
-  avatarPath: C:/Users/gangjian@meizu.com/Documents/GitHub/csportal/src/main/resources/static/images/avatar/
-  uploadPath: C:/Users/gangjian@meizu.com/Documents/GitHub/csportal/src/main/resources/static/images/upload/
+  avatarPath: /data/csc-sys/resources/static/images/avatar/
+  uploadPath: /data/csc-sys/resources/static/images/upload/
   sections:
     - 分享
     - 问答

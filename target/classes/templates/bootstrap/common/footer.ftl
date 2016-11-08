@@ -3,7 +3,7 @@
   <br>
   <div class="text-center" style="color: #9e9f9f;float: left;">
     &copy;1998 - 2017 Flyme All Right Reserved.
-<a href="//jamesd.cn" target="_blank"></a>
+<a href="http://csc.flyme.cn" target="_blank"></a>
     <a href="http://www.miitbeian.gov.cn/">${beianName!}</a>
   ${tongjiJs!}
   </div>

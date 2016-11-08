@@ -6,7 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -121,7 +123,7 @@ public class IndexController extends BaseController {
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(String username, String password, String passwordcheck, HttpServletResponse response,
-			Model model) {
+			HttpServletRequest request, Model model) {
 		User user = userService.findByUsername(username);
 		if (user != null) {
 			model.addAttribute("errors", "用户名已经被注册");
@@ -142,6 +144,8 @@ public class IndexController extends BaseController {
 			user.setInTime(new Date());
 			user.setAvatar(siteConfig.getBaseUrl() + "static/images/avatar/" + avatarName + ".png");
 			userService.save(user);
+			HttpSession session = request.getSession();
+			session.removeAttribute("SPRING_SECURITY_LAST_EXCEPTION");
 			return redirect(response, "/login?s=reg");
 		}
 		return render("/register");
@@ -194,12 +198,22 @@ public class IndexController extends BaseController {
 	public String upload(@RequestParam("file") MultipartFile file) {
 		if (!file.isEmpty()) {
 			try {
+				String dir = siteConfig.getUploadPath();
+				if (StringUtil.isBlank(dir)) {
+					throw new RuntimeException("文件上传目录为空，请检查配置文件config.yml");
+				}
+
+				File fdir = new File(dir);
+				if (!fdir.exists()) {
+					log.info("目录不存在，创建目录：dir:" + dir);
+					fdir.mkdirs();
+				}
+
 				String type = file.getContentType();
 				String suffix = "." + type.split("/")[1];
 				String fileName = StringUtil.getUUID() + suffix;
 				byte[] bytes = file.getBytes();
-				BufferedOutputStream stream = new BufferedOutputStream(
-						new FileOutputStream(new File(siteConfig.getUploadPath() + fileName)));
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(dir + fileName)));
 				stream.write(bytes);
 				stream.close();
 				return JsonUtil.success(siteConfig.getBaseUrl() + "static/images/upload/" + fileName);

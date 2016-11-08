@@ -6,34 +6,38 @@
       <div class="panel-heading"><a href="/">主页</a> / 关于</div>
       <div class="panel-body topic-detail-content">
         <p><b>Core System Community</b></p>
-        <p>Thanks <a href="https://github.com/tomoya92/pybbs" target="_blank">pybbs</a>（朋也社区）</p>
+        <p>Thanks <a href="https://github.com/tomoya92/pybbs" target="_blank">pybbs</a></p>
         <p>layout reference:  
           <a href="https://cnodejs.org" target="_blank">cnodejs</a>,
           <a href="https://v2ex.com" target="_blank">v2ex</a>
         </p>
         <p>
-          commit <a href="https://github.com/myjamesd/csportal/issues" target="_blank">issues</a>
+          commit <a href="https://github.com/myjamesd/csc-sys/issues" target="_blank">issues</a>
         </p>
         <p>open source:
         <ul>
           <li>
-            <a href="https://github.com/myjamesd/csportal"
-                       target="_blank">https://github.com/myjamesd/csportal</a>
+            <a href="https://github.com/myjamesd/csc-sys"
+                       target="_blank">https://github.com/myjamesd/csc-sys</a>
           </li>
         </ul>
         <p>technology:
         <ul>
           <li>java</li>
-          <li>tomcat / jetty</li>
-          <li>jfinal</li>
+          <li>jetty</li>
+          <li>hibernate</li>
           <li>mysql(druid datasource)</li>
           <li>freemarker</li>
           <li>bootstrap</li>
           <li>redis</li>
           <li>solr</li>
+          <li>elasticsearch</li>
         </ul>
-          <p>Version: N Release (0.0.1)
-          <p>Build id: 20161112-1000
+          <p>License
+          <ul>
+          <li>MIT</li>
+          </ul>
+          <p>Build id:20161109-0000
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@ spring:
   freemarker:
     cache: false
   datasource:
-    url: jdbc:mysql://localhost/csc-sys?useSSL=false
+    url: jdbc:mysql://172.16.10.69/csc-sys?useSSL=false
     username: root
     password: mysql
   jpa:
@@ -23,8 +23,8 @@ spring:
 banner:
   location: banner.txt
 
-server.port: 80
+server.port: 8080
 server.reload: automatic
 
 appprops:
-  host: http://localhost
+  host: http://csc.flyme.cn/

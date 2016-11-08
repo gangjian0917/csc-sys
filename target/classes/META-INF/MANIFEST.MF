@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Implementation-Title: csportal
-Implementation-Version: 2.4
+Implementation-Title: csc-sys
+Implementation-Version: 0.1
 Built-By: gangjian
 Implementation-Vendor-Id: com.jam
 Build-Jdk: 1.8.0_72

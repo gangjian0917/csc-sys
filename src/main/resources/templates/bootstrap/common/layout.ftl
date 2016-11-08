@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 ${weibometa!}
   <title>${page_title!siteTitle}</title>
-  <link rel="icon" href="//jamesd.cn/favicon.ico">
+  <link rel="icon" href="/static/favicon.ico">
 
   <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
 <#--<link rel="stylesheet/less" href="/static/bootstrap/css/less/bootstrap.less">-->

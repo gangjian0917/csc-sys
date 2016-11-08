@@ -17,10 +17,13 @@ import com.jam.javautils.encrypt.EncryptionUtil;
 import com.jam.util.identicon.generator.IBaseGenartor;
 import com.jam.util.identicon.generator.impl.MyGenerator;
 
+import lombok.extern.log4j.Log4j;
+
 /**
  * Author: Bryant Hang Date: 15/1/10 Time: 下午2:42
  */
 @Component
+@Log4j
 public class Identicon {
 
 	@Autowired
@@ -66,7 +69,19 @@ public class Identicon {
 		BufferedImage image = identicon.create(md5, 420);
 
 		try {
-			File file = new File(siteConfig.getAvatarPath() + fileName + ".png");
+			String dir = siteConfig.getAvatarPath();
+			if (StringUtil.isBlank(dir)) {
+				throw new RuntimeException("头像文件目录为空，请检查配置文件config.yml");
+			}
+
+			File fdir = new File(dir);
+			if (!fdir.exists()) {
+				log.info("目录不存在，创建目录：dir:" + dir);
+				fdir.mkdirs();
+			}
+
+			String name = dir + fileName + ".png";
+			File file = new File(name);
 			if (!file.exists())
 				file.createNewFile();
 			ImageIO.write(image, "PNG", file);
