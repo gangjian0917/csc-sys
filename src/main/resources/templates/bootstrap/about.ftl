@@ -7,12 +7,12 @@
       <div class="panel-body topic-detail-content">
         <p><b>Core System Community</b></p>
         <p>Thanks <a href="https://github.com/tomoya92/pybbs" target="_blank">pybbs</a></p>
-        <p>layout reference:  
+        <p>Layout reference:  
           <a href="https://cnodejs.org" target="_blank">cnodejs</a>,
           <a href="https://v2ex.com" target="_blank">v2ex</a>
         </p>
         <p>
-          commit <a href="https://github.com/myjamesd/csc-sys/issues" target="_blank">issues</a>
+          Commit <a href="https://github.com/myjamesd/csc-sys/issues" target="_blank">issues</a>
         </p>
         <p>open source:
         <ul>
@@ -21,7 +21,7 @@
                        target="_blank">https://github.com/myjamesd/csc-sys</a>
           </li>
         </ul>
-        <p>technology:
+        <p>Technology:
         <ul>
           <li>java</li>
           <li>jetty</li>
@@ -33,11 +33,8 @@
           <li>solr</li>
           <li>elasticsearch</li>
         </ul>
-          <p>License
-          <ul>
-          <li>MIT</li>
-          </ul>
-          <p>Build id:20161109-0000
+          <p>License MIT
+          <p>Build id: 20161109-0000
       </div>
     </div>
   </div>
