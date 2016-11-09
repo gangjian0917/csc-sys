@@ -39,6 +39,7 @@
           </div>
         </#if>
       </div>
+      <#-- 
       <div class="panel panel-default">
         <div class="panel-heading">${currentUser.username}回复的话题</div>
         <#if topicPage.getTotalElements() == 0>
@@ -53,6 +54,7 @@
           </div>
         </#if>
       </div>
+      -->
     <#else>
       <div class="panel panel-default">
         <div class="panel-body">

@@ -79,6 +79,28 @@ public class SuggestionController extends BaseController {
 			return render("/suggestion/edit");
 		}
 	}
+	
+	/**
+	 * 吐槽详情
+	 *
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/{id}")
+	public String detail(@PathVariable Integer id, HttpServletResponse response, Model model) {
+		if (id != null) {
+			Suggestion suggestion = suggestionService.findById(id);
+			model.addAttribute("suggestion", suggestion);
+			
+			suggestion.setReplyCount(suggestion.getReplyCount()+1);
+			suggestionService.save(suggestion);
+			return render("/admin/suggestion/detail");
+		} else {
+			renderText(response, "该吐槽不存在");
+			return null;
+		}
+	}
 
 	/**
 	 * 更新吐槽

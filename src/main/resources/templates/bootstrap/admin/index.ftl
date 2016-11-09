@@ -23,8 +23,8 @@
                             <tbody>
                                 <#list suggestions.getContent() as suggestion>
                                 <tr>
-                                    <td><a href="${baseUrl!}/suggestion/${suggestion.id!}.html"
-                                           target="_blank">${suggestion.title!}</a></td>
+                                    <td><a href="${baseUrl!}/suggestion/${suggestion.id!}"
+                                           >${suggestion.title!}</a></td>
                                     <td width="145px">${suggestion.inTime}</td>
                                 </tr>
                                 </#list>

@@ -127,4 +127,17 @@ public class ReplyService {
         Pageable pageable = new PageRequest(p - 1, size, sort);
         return replyDao.findByUser(user, pageable);
     }
+    
+    /**
+     * 查询用户的回复列表
+     * @param p
+     * @param size
+     * @param user
+     * @return
+     */
+    public Page<Reply> findByUserAndTopicTabNotLike(int p, int size, User user,String topicTab) {
+        Sort sort = new Sort(new Sort.Order(Sort.Direction.DESC, "inTime"));
+        Pageable pageable = new PageRequest(p - 1, size, sort);
+        return replyDao.findByUserAndTopicTabNotLike(user,topicTab, pageable);
+    }
 }

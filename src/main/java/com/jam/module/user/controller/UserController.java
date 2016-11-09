@@ -1,8 +1,12 @@
 package com.jam.module.user.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.jam.common.BaseController;
 import com.jam.common.config.SiteConfig;
 import com.jam.module.collect.service.CollectService;
+import com.jam.module.reply.entity.Reply;
 import com.jam.module.reply.service.ReplyService;
+import com.jam.module.topic.entity.Topic;
 import com.jam.module.topic.service.TopicService;
 import com.jam.module.user.entity.User;
 import com.jam.module.user.service.UserService;
@@ -57,7 +63,7 @@ public class UserController extends BaseController {
 		}
 		return render("/user/info");
 	}
-
+	
 	/**
 	 * 用户发布的所有话题
 	 * 

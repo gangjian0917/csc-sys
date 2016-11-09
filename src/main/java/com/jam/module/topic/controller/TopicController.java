@@ -1,6 +1,5 @@
 package com.jam.module.topic.controller;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.jam.common.BaseController;
 import com.jam.javautils.string.StringUtil;
 import com.jam.module.collect.service.CollectService;
+import com.jam.module.common.CscSysUtils;
 import com.jam.module.reply.entity.Reply;
 import com.jam.module.reply.service.ReplyService;
-import com.jam.module.security.entity.Role;
 import com.jam.module.security.service.RoleService;
 import com.jam.module.topic.entity.Topic;
 import com.jam.module.topic.service.TopicService;
@@ -135,7 +134,7 @@ public class TopicController extends BaseController {
 		if (id != null) {
 			Topic topic = topicService.findById(id);
 			List<Reply> replies = replyService.findByTopicId(id);
-			replies = getPrivateReplies(topic, replies);
+			replies = CscSysUtils.getPrivateReplies(userService, getUser(), getSiteConfig(), topic, replies);
 			model.addAttribute("topic", topic);
 			model.addAttribute("replies", replies);
 			model.addAttribute("user", getUser());
@@ -148,112 +147,6 @@ public class TopicController extends BaseController {
 			renderText(response, "话题不存在");
 			return null;
 		}
-	}
-
-	/**
-	 * "管理通告-非公开回复" 只能查看 管理员和自己的回复
-	 * 
-	 * @param topic
-	 * @param replies
-	 * @return
-	 */
-	private List<Reply> getPrivateReplies(Topic topic, List<Reply> replies) {
-		List<Reply> result = new ArrayList<Reply>();
-		User loginUser = getUser();
-
-		if (getSiteConfig().getReplyPrivateSection().equals(topic.getTab())) {
-			if (loginUser == null) {
-				// 未登录用户禁止查看"管理通告-非公开回复"下面的回复
-				Reply reply = new Reply();
-				reply.setId(Integer.MAX_VALUE);
-				reply.setInTime(new Date());
-				reply.setTopic(topic);
-				reply.setUp(0);
-				reply.setUpIds("0");
-				reply.setUser(userService.findById(1));
-				reply.setContent("游客不能查看该板块中的回复");
-				result.add(reply);
-				return result;
-			}
-
-			for (Reply re : replies) {
-				// 可以看到这条回复的人包括：话题的主人、回复的作者、管理员、管理员的回复
-				if (isAdminRole(loginUser)) {
-					result.add(re);
-				} else if (loginUser.getId() == topic.getUser().getId() || loginUser.getId() == re.getUser().getId()
-						|| isAdminReply(re)) {
-					if (isContainAt(re.getContent())) {
-						if (isAtMe(re.getContent(), loginUser.getUsername())) {
-							result.add(re);
-						}
-					} else {
-						result.add(re);
-					}
-				}
-			}
-		}
-
-		return result;
-	}
-
-	/**
-	 * 
-	 * @param user
-	 * @return
-	 */
-	private boolean isAdminRole(User user) {
-		if (user != null) {
-			for (Role r : user.getRoles()) {
-				if (r.getId() == getSiteConfig().getAdminRoleId()) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * 
-	 * @param reply
-	 * @return
-	 */
-	private boolean isAdminReply(Reply reply) {
-		User user = reply.getUser();
-		return isAdminRole(user);
-	}
-
-	private boolean isContainAt(String content) {
-		List<String> users = StringUtil.fetchUsers(content);
-		if (users != null && users.size() > 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	/**
-	 * 回复中，如果有@用户。则只有被@的用户 和 管理员，才能看到该回复
-	 *
-	 * @param content
-	 * @return
-	 */
-	private boolean isAtMe(String content, String loginUser) {
-		boolean result = false;
-		if (StringUtil.isBlank(content) || StringUtil.isBlank(loginUser))
-			return result;
-		// 处理@
-		List<String> users = StringUtil.fetchUsers(content);
-		if (users == null || users.size() == 0) {
-			result = false;
-		} else {
-			for (String user : users) {
-				if (loginUser.equals(user)) {
-					result = true;
-				}
-			}
-		}
-
-		return result;
 	}
 
 	/**

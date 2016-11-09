@@ -3,6 +3,8 @@ package com.jam.module.reply.dao;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.jam.module.reply.entity.Reply;
@@ -25,4 +27,6 @@ public interface ReplyDao extends JpaRepository<Reply, Integer> {
     void deleteByUser(User user);
 
     Page<Reply> findByUser(User user, Pageable pageable);
+    
+    Page<Reply> findByUserAndTopicTabNotLike(User user, String topicTab, Pageable pageable);
 }

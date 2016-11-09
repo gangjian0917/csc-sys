@@ -23,7 +23,15 @@
                 <#list page.getContent() as suggestion>
                 <tr>
                   <td>${suggestion.id!}</td>
-                  <td>${suggestion.title!}</td>
+                  <td>
+                  <#if _roles?seq_contains("suggestion:edit")>
+                  <a href="/admin/suggestion/${suggestion.id}/detail">
+			      </#if>
+					${suggestion.title!}
+					<#if _roles?seq_contains("suggestion:edit")>
+					</a>
+					</#if>
+					</td>
                   <td>${suggestion.inTime!}</td>
                   <td>
                     <#if _roles?seq_contains("suggestion:edit")>
