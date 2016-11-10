@@ -49,6 +49,7 @@ public class CsApplication extends WebMvcConfigurerAdapter {
 		super.addViewControllers(registry);
 		registry.addViewController("/donate").setViewName(siteConfig.getTheme() + "/donate");
 		registry.addViewController("/about").setViewName(siteConfig.getTheme() + "/about");
+		registry.addViewController("/help").setViewName(siteConfig.getTheme() + "/help");
 		registry.addViewController("/apidoc").setViewName(siteConfig.getTheme() + "/api");
 	}
 

@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" style="color:#fff;" href="/">${siteTitle!}</a>
+      <a class="navbar-brand" style="color:#fff;font-size:15px" href="/">${siteTitle!}</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse header-navbar">
       <#if _search == true>
@@ -30,6 +30,9 @@
         </li>
         <li <#if page_tab == 'about'> class="active" </#if>>
           <a href="/about">关于</a>
+        </li>
+        <li <#if page_tab == 'help'> class="active" </#if>>
+          <a href="/help">帮助</a>
         </li>
         <#if _isAuthenticated?? && _isAuthenticated == true>
           <li class="hidden-md hidden-lg">
