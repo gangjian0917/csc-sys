@@ -42,7 +42,7 @@ public class CscSysUtils {
 			for (Reply re : replies) {
 				// 可以看到这条回复的人包括：话题的主人、回复的作者、管理员、管理员的回复
 				if (isAdminRole(siteConfig, loginUser) || isTopicAuthor(topic, loginUser)
-						|| isLoginUser(re, loginUser)) {
+						|| isLoginUsersReply(re, loginUser)) {
 					result.add(re);
 					continue;
 				}
@@ -98,7 +98,7 @@ public class CscSysUtils {
 	 * @param user
 	 * @return
 	 */
-	public static boolean isLoginUser(Reply re, User user) {
+	public static boolean isLoginUsersReply(Reply re, User user) {
 		if (re != null) {
 			if (user != null) {
 				if (user.getId() == re.getUser().getId()) {
