@@ -54,6 +54,7 @@ public class CommonInterceptor implements HandlerInterceptor {
 			modelMap.addAttribute("_isAuthenticated", isAuthenticated);
 			modelMap.addAttribute("baseUrl", siteConfig.getBaseUrl());
 			modelMap.addAttribute("siteTitle", siteConfig.getName());
+			modelMap.addAttribute("siteTitleEn", siteConfig.getNameEn());
 			modelMap.addAttribute("sections", siteConfig.getSections());
 			modelMap.addAttribute("_search", siteConfig.isElastic());
 		}

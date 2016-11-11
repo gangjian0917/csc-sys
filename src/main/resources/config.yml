@@ -1,5 +1,6 @@
 site:
-  name: 核心系统社区 CoreSys Community
+  name: 核心系统社区
+  nameEn: CoreSys Community
   baseUrl: http://csc.flyme.cn/
   sessionName: _user
   adminSessionName: _admin_user
@@ -17,6 +18,7 @@ site:
     - 博客
     - 管理通告
     - 管理通告-非公开回复
+    - BUG反馈
   theme: bootstrap
   beforeUrl: beforeUrl
   elastic: false # true 开启 false 关闭

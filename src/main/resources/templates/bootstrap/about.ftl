@@ -5,7 +5,7 @@
     <div class="panel panel-default">
       <div class="panel-heading"><a href="/">主页</a> / 关于</div>
       <div class="panel-body topic-detail-content">
-        <p><b>Core System Community</b></p>
+        <p><b>Core Sys Community</b></p>
         <p>Thanks <a href="https://github.com/tomoya92/pybbs" target="_blank">pybbs</a></p>
         <p>Layout reference:  
           <a href="https://cnodejs.org" target="_blank">cnodejs</a>,

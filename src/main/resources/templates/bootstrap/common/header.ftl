@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" style="color:#fff;font-size:15px" href="/">${siteTitle!}</a>
+      <a class="navbar-brand" style="color:#fff;font-size:16px" href="/">${siteTitle!}</a><a class="navbar-brand" style="color:#fff;font-size:8px" href="/">${siteTitleEn!}</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse header-navbar">
       <#if _search == true>

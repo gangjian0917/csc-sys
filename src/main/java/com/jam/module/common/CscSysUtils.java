@@ -41,15 +41,14 @@ public class CscSysUtils {
 
 			for (Reply re : replies) {
 				// 可以看到这条回复的人包括：话题的主人、回复的作者、管理员、管理员的回复
-				if (isAdminRole(siteConfig, loginUser)) {
+				if (isAdminRole(siteConfig, loginUser) || isTopicAuthor(topic, loginUser)
+						|| isLoginUser(re, loginUser)) {
 					result.add(re);
-				} else if (loginUser.getId() == topic.getUser().getId() || loginUser.getId() == re.getUser().getId()
-						|| isAdminReply(siteConfig, re)) {
-					if (isContainAt(re.getContent())) {
-						if (isAtMe(re.getContent(), loginUser.getUsername())) {
-							result.add(re);
-						}
-					} else {
+					continue;
+				}
+
+				if (isContainAt(re.getContent())) {
+					if (isAtMe(re.getContent(), loginUser.getUsername())) {
 						result.add(re);
 					}
 				}
@@ -60,6 +59,7 @@ public class CscSysUtils {
 	}
 
 	/**
+	 * 登陆用户是管理员
 	 * 
 	 * @param user
 	 * @return
@@ -68,6 +68,40 @@ public class CscSysUtils {
 		if (user != null) {
 			for (Role r : user.getRoles()) {
 				if (r.getId() == siteConfig.getAdminRoleId()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 登陆用户是topic的作者
+	 * 
+	 * @param user
+	 * @return
+	 */
+	public static boolean isTopicAuthor(Topic topic, User user) {
+		if (topic != null) {
+			if (user != null) {
+				if (topic.getUser().getId() == user.getId()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 登陆用户的回复
+	 * 
+	 * @param user
+	 * @return
+	 */
+	public static boolean isLoginUser(Reply re, User user) {
+		if (re != null) {
+			if (user != null) {
+				if (user.getId() == re.getUser().getId()) {
 					return true;
 				}
 			}

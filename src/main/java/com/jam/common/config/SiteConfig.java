@@ -15,6 +15,7 @@ import java.util.List;
 @Getter
 public class SiteConfig {
     private String name;
+    private String nameEn;
     private String baseUrl;
     private String cookieName;
     private String adminCookieName;

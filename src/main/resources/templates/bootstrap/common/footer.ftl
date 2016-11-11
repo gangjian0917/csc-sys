@@ -2,7 +2,7 @@
 <div class="container">
   <br>
   <div class="text-center" style="color: #9e9f9f;float: left;">
-    &copy;1998 - 2017 Flyme All Right Reserved.
+    &copy;2016 - 2017 Flyme All Right Reserved.
 <a href="http://csc.flyme.cn" target="_blank"></a>
     <a href="http://www.miitbeian.gov.cn/">${beianName!}</a>
   ${tongjiJs!}

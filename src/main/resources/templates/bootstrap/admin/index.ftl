@@ -25,7 +25,7 @@
                                 <tr>
                                     <td><a href="${baseUrl!}/suggestion/${suggestion.id!}"
                                            >${suggestion.title!}</a></td>
-                                    <td width="145px">${suggestion.inTime}</td>
+                                    <td width="155px">${suggestion.inTime}</td>
                                 </tr>
                                 </#list>
                             </tbody>
@@ -70,7 +70,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td width="145px">${reply.inTime}</td>
+                                    <td width="155px">${reply.inTime}</td>
                                 </tr>
                                 </#list>
                             </tbody>
@@ -93,7 +93,7 @@
                                 <tr>
                                     <td><a href="${baseUrl!}/topic/${topic.id!}"
                                            target="_blank">${topic.title!}</a></td>
-                                    <td width="145px">${topic.inTime}</td>
+                                    <td width="155px">${topic.inTime}</td>
                                 </tr>
                                 </#list>
                             </tbody>
@@ -122,7 +122,7 @@
                                     <td>${user.id!}</td>
                                     <td><a href="mailto:${user.email!}">${user.email!}</a></td>
                                     <td>${user.username!}</td>
-                                    <td width="145px">${user.inTime}</td>
+                                    <td width="155px">${user.inTime}</td>
                                 </tr>
                                 </#list>
                             </tbody>
