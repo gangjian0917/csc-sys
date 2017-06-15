@@ -5,7 +5,7 @@
 
 	<groupId>com.jam</groupId>
 	<artifactId>csc-sys</artifactId>
-	<version>0.3</version>
+	<version>0.4</version>
 	<packaging>jar</packaging>
 
 	<name>csc-sys</name>
