@@ -53,6 +53,8 @@ public class CscSysUtils {
 					}
 				}
 			}
+		}else{
+			return replies;
 		}
 
 		return result;

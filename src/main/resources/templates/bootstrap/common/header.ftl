@@ -20,17 +20,21 @@
         </form>
       </#if>
       <ul class="nav navbar-nav navbar-right">
-      <#--
+        <#--
         <li <#if page_tab == 'donate'> class="active" </#if>>
           <a href="/donate">Donate</a>
         </li>
         -->
+		<#--
         <li <#if page_tab == 'api'> class="active" </#if>>
           <a href="/apidoc">API</a>
         </li>
+        -->
+        <#--
         <li <#if page_tab == 'about'> class="active" </#if>>
           <a href="/about">关于</a>
         </li>
+        -->
         <li <#if page_tab == 'help'> class="active" </#if>>
           <a href="/help">帮助</a>
         </li>
