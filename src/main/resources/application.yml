@@ -2,9 +2,9 @@ spring:
   freemarker:
     cache: false
   datasource:
-    url: jdbc:mysql://172.16.10.69/csc-sys?useSSL=false
+    url: jdbc:mysql://172.17.137.100/csc-sys?useSSL=false
     username: root
-    password: mysql
+    password: ****
   jpa:
     database: mysql
     show-sql: true
